@@ -6,4 +6,10 @@ class StartupControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get ayuda" do
+    get startup_ayuda_url
+    assert_response :success
+  end
+
+
 end
