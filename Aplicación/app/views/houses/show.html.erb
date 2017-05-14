@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  
+  <div class="col-xs-3">
+    <%= image_tag(@house.file_url, :width => "100%") if @house.file.present? %>
+    <p><b>Título: </b><%= @house.title%></p>
+    <p><b>Descripción: </b><%= @house.description %></p>
+    <p><b>Costo: </b><%= @house.cost %></p>
+    <p><b>Calle: </b><%= @house.street %></p>
+    <p><b>Número: </b><%= @house.number %></p>
+    <p><b>Código Postal: </b><%= @house.postal %></p>
+    <p><b>Colonia: </b><%= @house.colony %></p>
+    <p>
+      <%= link_to 'Editar', edit_house_path(@house) %> |
+      <%= link_to 'Borrar', @house, confirm: '¿Estás seguro?', method: :delete %> |
+      <%= link_to 'Regresar', house_path %><!--Regresar a Mis Fotos -->
+    </p>
+  </div>
+</div>

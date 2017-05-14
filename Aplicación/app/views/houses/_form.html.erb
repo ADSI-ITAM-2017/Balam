@@ -1,0 +1,48 @@
+<% provide(:title, '¡Añade tu casa!') %>
+<h1>Añade tu casa</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(house) do |f| %>
+      <% if @house.errors.any? %>
+        <div id="error_explanation">
+          <div class="alert alert-danger">
+            The form contains <%= pluralize(@house.errors.count, "error") %>.
+          </div>
+          <ul>
+          <% @house.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+        <%= f.label :title, "Título" %>
+        <%= f.text_field :title, class: 'form-control'  %>
+      
+        <%= f.label :description, "Descripción" %>
+        <%= f.text_area :description, class: 'form-control'  %>
+      
+        <%= f.label :file, "Imagen"%>
+        <%= f.file_field :file, class: 'form-control'  %>
+      
+        <%= f.label :cost, "Costo"%>
+        <%= f.text_field :cost, class: 'form-control'  %>
+      
+        <%= f.label :street, "Calle" %>
+        <%= f.text_field :street, class: 'form-control'  %>
+      
+        <%= f.label :number, "Número" %>
+        <%= f.text_field :number, class: 'form-control'  %>
+        
+        <%= f.label :postal, "Código Postal" %>
+        <%= f.text_field :postal, class: 'form-control'  %>
+      
+        <%= f.label :colony, "Colonia" %>
+        <%= f.text_field :colony, class: 'form-control'  %>
+      
+      <%= f.submit "Añadir casa", class: "btn btn-primary" %>
+      
+    <% end %>
+  </div>
+</div>
