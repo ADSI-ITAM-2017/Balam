@@ -14,7 +14,7 @@
     <p>
       <%= link_to 'Editar', edit_house_path(@house) %> |
       <%= link_to 'Borrar', @house, confirm: '¿Estás seguro?', method: :delete %> |
-      <%= link_to 'Regresar', house_path %><!--Regresar a Mis Fotos -->
+      <%= link_to 'Regresar', current_user %><!--Regresar a Mis Fotos -->
     </p>
   </div>
 </div>

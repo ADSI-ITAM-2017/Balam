@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get  '/ayuda',    to: 'startup#ayuda'
   get '/registrate', to: 'users#new'
   post '/registrate',  to: 'users#create'
-
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
@@ -18,6 +17,7 @@ Rails.application.routes.draw do
   resources :houses,        only: [:create, :destroy, :show, :edit]
   get '/nuevaCasa', to: 'houses#new'
   post '/nuevaCasa', to: 'houses#create'
+  delete '/borrarCasa',  to: 'houses#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 

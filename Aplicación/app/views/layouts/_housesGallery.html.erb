@@ -1,0 +1,13 @@
+<h1>Hogares disponibles</h1>
+<% @houses = House.all %>
+<% @houses.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.each do |house| %>
+      <div class="col-xs-4">
+        <%= image_tag house.file_url, :width => '100%' if house.file.present?%>
+        <h4><%= link_to house.title, house %></h4>
+        <%= house.description %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

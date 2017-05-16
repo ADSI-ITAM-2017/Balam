@@ -6,4 +6,7 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words(house.created_at) %> ago.
   </span>
+  <span><%= link_to "Editar", edit_house_path(house.id) %></span>
+ <span><%= link_to "Eliminar", house_path(house.id), method: :delete, data: { confirm: "¿Estás seguro?" } %></span>
+ 
 </li>

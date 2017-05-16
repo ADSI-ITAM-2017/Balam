@@ -41,8 +41,8 @@ class HousesController < ApplicationController
   def create
     @house = current_user.houses.build(house_params)
     if @house.save
-      flash[:success] = "House created!"
-      redirect_to root_url
+      flash[:success] = "Casa creada!"
+      redirect_to user_current
     else
       render 'houses'
     end
@@ -66,11 +66,9 @@ class HousesController < ApplicationController
   # DELETE /houses/1
   # DELETE /houses/1.json
   def destroy
-    @house.destroy
-    respond_to do |format|
-      format.html { redirect_to houses_url, notice: 'House was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    House.find(params[:id]).destroy
+    flash[:success] = "Propiedad eliminada"
+    redirect_to current_user
   end
 
   private
