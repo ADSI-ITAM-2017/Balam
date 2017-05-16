@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     
+    has_many :houses, dependent: :destroy
     attr_accessor :remember_token
     before_save { email.downcase! }
     validates :nombre, presence:true, length: { maximum: 50 }

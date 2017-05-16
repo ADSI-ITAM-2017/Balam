@@ -1,0 +1,9 @@
+<li id="house-<%= house.id %>">
+  
+  <%= image_tag(house.file_url, :width => "100%") if house.file.present? %>
+  <span class="user"><%= link_to house.title, house %></span>
+  <span class="content"><%= house.description %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(house.created_at) %> ago.
+  </span>
+</li>

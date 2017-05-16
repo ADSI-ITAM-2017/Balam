@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
 
   resources :users
-  resources :houses
+  resources :houses,        only: [:create, :destroy, :show, :edit]
+  get '/nuevaCasa', to: 'houses#new'
+  post '/nuevaCasa', to: 'houses#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 

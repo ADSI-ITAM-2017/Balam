@@ -10,8 +10,8 @@ class CreateHouses < ActiveRecord::Migration[5.0]
       t.integer :number
       t.integer :postal
       t.string :colony
+      
     end
-
   end
 
 end

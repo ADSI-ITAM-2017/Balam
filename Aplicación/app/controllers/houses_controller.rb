@@ -1,4 +1,5 @@
 class HousesController < ApplicationController
+  before_action :logged_in_user, only: [:create, :destroy]
   before_action :set_house, only: [:show, :edit, :update, :destroy]
 
   # GET /houses
@@ -23,19 +24,30 @@ class HousesController < ApplicationController
 
   # POST /houses
   # POST /houses.json
-  def create
-    @house = House.new(house_params)
+  #def create
+  #  @house = House.new(house_params)
 
-    respond_to do |format|
-      if @house.save
-        format.html { redirect_to @house, notice: 'House was successfully created.' }
-        format.json { render :show, status: :created, location: @house }
-      else
-        format.html { render :new }
-        format.json { render json: @house.errors, status: :unprocessable_entity }
-      end
+  #  respond_to do |format|
+  #    if @house.save
+  #      format.html { redirect_to @house, notice: 'House was successfully created.' }
+  #      format.json { render :show, status: :created, location: @house }
+  #    else
+  #      format.html { render :new }
+  #      format.json { render json: @house.errors, status: :unprocessable_entity }
+  #    end
+  #  end
+  #end
+
+  def create
+    @house = current_user.houses.build(house_params)
+    if @house.save
+      flash[:success] = "House created!"
+      redirect_to root_url
+    else
+      render 'houses'
     end
   end
+
 
   # PATCH/PUT /houses/1
   # PATCH/PUT /houses/1.json
