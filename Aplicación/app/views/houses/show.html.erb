@@ -12,7 +12,7 @@
   <div class="col-xs-3">
     <%= image_tag(@house.file_url, :width => "100%") if @house.file.present? %>
     <p><b>Título: </b><%= @house.title%></p>
-    <p><b>Tipo: </b><%= @house.type%></p>
+    <p><b>Tipo: </b><%= @house.kind%></p>
     <p><b>Descripción: </b><%= @house.description %></p>
     <p><b>Costo: </b><%= @house.cost %></p>
     <p><b>Calle: </b><%= @house.street %></p>
