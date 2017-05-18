@@ -11,6 +11,7 @@
     <p><b>Número: </b><%= @house.number %></p>
     <p><b>Código Postal: </b><%= @house.postal %></p>
     <p><b>Colonia: </b><%= @house.colony %></p>
+    <p><b>Contactar con el dueño</b></p>
     <p>
       <%= link_to 'Editar', edit_house_path(@house) %> |
       <%= link_to 'Borrar', @house, confirm: '¿Estás seguro?', method: :delete %> |
