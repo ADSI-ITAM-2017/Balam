@@ -5,7 +5,7 @@
   <div class="col-xs-3">
     <%= image_tag(@house.file_url, :width => "100%") if @house.file.present? %>
     <p><b>Título: </b><%= @house.title%></p>
-    <p><b>Tipo: </b><%= @house.type%></p>
+    <p><b>Tipo: </b><%= @house.kind%></p>
     <p><b>Descripción: </b><%= @house.description %></p>
     <p><b>Costo: </b><%= @house.cost %></p>
     <p><b>Calle: </b><%= @house.street %></p>
@@ -21,9 +21,8 @@
         <%= link_to 'Regresar', current_user %><!--Regresar a Mis Fotos -->
 
       <% else %>
-      
+        <p><b><%= link_to "Contactar con el dueño", conversations_path(sender_id: current_user.id, recipient_id: @house.user.id), method: 'post'%></b></p>
       <% end %> 
-      <p><b><%= link_to "Contactar con el dueño", conversations_path(sender_id: current_user.id, recipient_id: @house.user.id), method: 'post'%></b></p>
     <% else %>
       <p><b><%= link_to "Contactar con el dueño", login_path%></b></p>
     <% end %>

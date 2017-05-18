@@ -1,42 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Houses</h1>
+<h1>Casas</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>File</th>
-      <th>Cost</th>
-      <th>Street</th>
-      <th>Number</th>
-      <th>Postal</th>
-      <th>Colony</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @houses.each do |house| %>
-      <tr>
-        <td><%= house.title %></td>
-        <td><%= house.type %></td>
-        <td><%= house.description %></td>
-        <td><%= house.file %></td>
-        <td><%= house.cost %></td>
-        <td><%= house.street %></td>
-        <td><%= house.number %></td>
-        <td><%= house.postal %></td>
-        <td><%= house.colony %></td>
-        <td><%= link_to 'Show', house %></td>
-        <td><%= link_to 'Edit', edit_house_path(house) %></td>
-        <td><%= link_to 'Borrar', @house, confirm: '¿Estás seguro?', method: :delete %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+<%= form_tag(houses_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Buscar" %>
+  <%= submit_tag "Buscar" %>
+<% end %>
 
-<%= link_to 'New House', new_house_path %>
+
+<div class="col-md-8">
+      <h3>CASAS (<%= @houses.count %>)</h3>
+      <ol class="houses">
+        <%  @houses = @houses.paginate(page: params[:page]) %>
+        <%= render @houses %>
+      </ol>
+      <%= will_paginate @houses %>
+</div>
+  

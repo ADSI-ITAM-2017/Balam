@@ -24,12 +24,12 @@ Rails.application.routes.draw do
 
 
   resources :users
-  resources :houses,        only: [:create, :destroy, :show, :edit]
+  resources :houses,        only: [:create, :destroy, :show, :edit, :index]
   get '/nuevaCasa', to: 'houses#new'
   post '/nuevaCasa', to: 'houses#create'
   delete '/borrarCasa',  to: 'houses#destroy'
   get '/misCasas', to: 'users#houseGallery'
-  
+  get '/buscar', to: 'houses#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   resources :conversations do

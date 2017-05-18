@@ -7,6 +7,11 @@ class HousesController < ApplicationController
   # GET /houses.json
   def index
     @houses = House.all
+    if params[:search]
+      @houses = House.search(params[:search]).order("created_at DESC")
+    else
+      @houses = House.all.order('created_at DESC')
+    end
   end
 
   # GET /houses/1
@@ -64,7 +69,7 @@ class HousesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def house_params
-      params.require(:house).permit(:title, :description, :file, :cost, :street, :number, :postal,  :colony, :type)
+      params.require(:house).permit(:title, :description, :file, :cost, :street, :number, :postal,  :colony, :kind)
     end
     
 
