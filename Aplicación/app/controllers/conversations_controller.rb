@@ -21,4 +21,11 @@ class ConversationsController < ApplicationController
   def conversation_params
     params.permit(:sender_id, :recipient_id)
   end
+  
+  #def newConversation
+  #  @conversation=Conversation.new
+  #  @conversation=Conversation.create
+    
+  
+  
 end

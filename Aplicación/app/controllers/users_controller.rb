@@ -24,5 +24,11 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:nombre, :email, :fecha, :password, :password_confirmation)
     end
+    
+    def houseGallery
+      @user = current_user
+      @houses = @user.houses.paginate(page: params[:page])
+      #redirect_to "/misCasas"
+    end
   
 end

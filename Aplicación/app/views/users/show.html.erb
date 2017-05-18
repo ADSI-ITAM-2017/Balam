@@ -9,16 +9,10 @@
     </section>
   </aside>
   
+  <%= link_to 'Mensajes', conversations_path %>
+  <%= link_to 'Casas', misCasas_path %>
   
-  <div class="col-md-8">
-    <% if @user.houses.any? %>
-      <h3>CASAS (<%= @user.houses.count %>)</h3>
-      <ol class="houses">
-        <%= render @houses %>
-      </ol>
-      <%= will_paginate @houses %>
-    <% end %>
-  </div>
+  
   
   
 </div>

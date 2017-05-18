@@ -22,27 +22,11 @@ class HousesController < ApplicationController
   def edit
   end
 
-  # POST /houses
-  # POST /houses.json
-  #def create
-  #  @house = House.new(house_params)
-
-  #  respond_to do |format|
-  #    if @house.save
-  #      format.html { redirect_to @house, notice: 'House was successfully created.' }
-  #      format.json { render :show, status: :created, location: @house }
-  #    else
-  #      format.html { render :new }
-  #      format.json { render json: @house.errors, status: :unprocessable_entity }
-  #    end
-  #  end
-  #end
-
   def create
     @house = current_user.houses.build(house_params)
     if @house.save
       flash[:success] = "Casa creada!"
-      redirect_to user_current
+      redirect_to user_path(current_user)
     else
       render 'houses'
     end
@@ -68,7 +52,7 @@ class HousesController < ApplicationController
   def destroy
     House.find(params[:id]).destroy
     flash[:success] = "Propiedad eliminada"
-    redirect_to current_user
+    redirect_to misCasas_path
   end
 
   private
