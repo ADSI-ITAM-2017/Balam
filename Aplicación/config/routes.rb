@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :contacts
   get 'message/index'
 
   get 'message/new'
