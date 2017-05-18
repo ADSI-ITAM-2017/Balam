@@ -2,6 +2,7 @@ class HousesController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :set_house, only: [:show, :edit, :update, :destroy]
 
+    
   # GET /houses
   # GET /houses.json
   def index
@@ -63,6 +64,8 @@ class HousesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def house_params
-      params.require(:house).permit(:title, :description, :file, :cost, :street, :number, :postal,  :colony)
+      params.require(:house).permit(:title, :description, :file, :cost, :street, :number, :postal,  :colony, :type)
     end
+    
+
 end

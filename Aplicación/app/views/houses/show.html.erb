@@ -5,17 +5,29 @@
   <div class="col-xs-3">
     <%= image_tag(@house.file_url, :width => "100%") if @house.file.present? %>
     <p><b>Título: </b><%= @house.title%></p>
+    <p><b>Tipo: </b><%= @house.type%></p>
     <p><b>Descripción: </b><%= @house.description %></p>
     <p><b>Costo: </b><%= @house.cost %></p>
     <p><b>Calle: </b><%= @house.street %></p>
     <p><b>Número: </b><%= @house.number %></p>
     <p><b>Código Postal: </b><%= @house.postal %></p>
     <p><b>Colonia: </b><%= @house.colony %></p>
-    <p><b>Contactar con el dueño</b></p>
+    
     <p>
-      <%= link_to 'Editar', edit_house_path(@house) %> |
-      <%= link_to 'Borrar', @house, confirm: '¿Estás seguro?', method: :delete %> |
-      <%= link_to 'Regresar', current_user %><!--Regresar a Mis Fotos -->
+    <% if logged_in? %>
+      <% if @house.user==current_user %>
+        <%= link_to 'Editar', edit_house_path(@house) %> |
+        <%= link_to 'Borrar', @house, confirm: '¿Estás seguro?', method: :delete %> |
+        <%= link_to 'Regresar', current_user %><!--Regresar a Mis Fotos -->
+
+      <% else %>
+      
+      <% end %> 
+      <p><b><%= link_to "Contactar con el dueño", conversations_path(sender_id: current_user.id, recipient_id: @house.user.id), method: 'post'%></b></p>
+    <% else %>
+      <p><b><%= link_to "Contactar con el dueño", login_path%></b></p>
+    <% end %>
+      
     </p>
   </div>
 </div>

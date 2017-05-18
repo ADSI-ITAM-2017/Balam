@@ -9,6 +9,9 @@
         <%= f.label :title, "Título" %>
         <%= f.text_field :title, class: 'form-control'  %>
       
+        <%= f.label :type, "Tipo" %>
+        <%= f.select :from, [ 'Casa','Departamento','Cuarto' ], :prompt => 'Elige uno' %>
+        
         <%= f.label :description, "Descripción" %>
         <%= f.text_area :description, class: 'form-control'  %>
       
