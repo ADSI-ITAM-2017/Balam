@@ -17,11 +17,11 @@
       </h1>
     </section>
   </aside>
-  
   <%= link_to 'Mensajes', conversations_path %>
-  <%= link_to 'Casas', misCasas_path %>
-  
-  
-  
-  
+  <% if logged_in? %>
+    <% if current_user.lessee==true %>
+      <%= link_to 'Casas', misCasas_path %>
+    <% end %>
+  <% end %>    
+
 </div>

@@ -21,8 +21,9 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menú <i class="fa fa-bars"></i>
                 </button>
-                <%= link_to "airbednb ITAM", root_path, class: "navbar-brand page-scroll" %>
-            </div>
+
+                <%= link_to "airbnb ITAM", root_path, class: "navbar-brand page-scroll" %>
+
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -31,6 +32,15 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
+                        <%= link_to "buscar", buscar_path, class: "page-scroll" %>
+                    </li>
+                    <li>
+                        <% if logged_in? %>
+                            <% if current_user.lessee==false %>
+                                <%= link_to "Conviertete en Arrendador", "users#lesseeChange", class: "page-scroll" %>
+                            <% end %>
+                        <% end %>
+                       
                         <a class="page-scroll" href="#services">Conviértete en Arrendador</a>
                     </li>
                     <li>
