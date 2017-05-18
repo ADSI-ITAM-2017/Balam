@@ -2,6 +2,10 @@ class HousesController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :set_house, only: [:show, :edit, :update, :destroy]
 
+    def contactOwner(actualHouse)
+      @conversation = Conversation.create(current_user, house.user.id)
+    end
+    
   # GET /houses
   # GET /houses.json
   def index
@@ -65,4 +69,6 @@ class HousesController < ApplicationController
     def house_params
       params.require(:house).permit(:title, :description, :file, :cost, :street, :number, :postal,  :colony)
     end
+    
+
 end

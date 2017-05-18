@@ -11,11 +11,20 @@
     <p><b>Número: </b><%= @house.number %></p>
     <p><b>Código Postal: </b><%= @house.postal %></p>
     <p><b>Colonia: </b><%= @house.colony %></p>
-    <p><b>Contactar con el dueño</b></p>
+    
     <p>
-      <%= link_to 'Editar', edit_house_path(@house) %> |
-      <%= link_to 'Borrar', @house, confirm: '¿Estás seguro?', method: :delete %> |
-      <%= link_to 'Regresar', current_user %><!--Regresar a Mis Fotos -->
+    <% if logged_in? %>
+      <% if @house.user==current_user %>
+        <%= link_to 'Editar', edit_house_path(@house) %> |
+        <%= link_to 'Borrar', @house, confirm: '¿Estás seguro?', method: :delete %> |
+        <%= link_to 'Regresar', current_user %><!--Regresar a Mis Fotos -->
+
+      <% else %>
+      
+      <% end %> 
+      <p><b><%= link_to "Contactar con el dueño", nuevoMensaje_path(:actualHouse => @house) %></b></p>
+    <% end %>
+      
     </p>
   </div>
 </div>

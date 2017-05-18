@@ -21,8 +21,6 @@ class MessagesController < ApplicationController
     @message = @conversation.messages.new
   end
  
- 
- 
   def new
     @message = @conversation.messages.new
   end
@@ -37,4 +35,5 @@ class MessagesController < ApplicationController
   def message_params
     params.require(:message).permit(:body, :user_id)
   end
+  
 end
