@@ -12,12 +12,14 @@ class House < ApplicationRecord
     validates :cost, numericality: { only_integer: true} 
     
     
+    #def self.search(search)
+    #    where("title LIKE ?", "%#{search}%") 
+    #    where("description LIKE ?", "%#{search}%")
+    #    where("street LIKE ?", "%#{search}%")
+    #    where("colony LIKE ?", "%#{search}%")
+    #end
     def self.search(search)
-        where("title LIKE ?", "%#{search}%") 
-        where("description LIKE ?", "%#{search}%")
-        where("street LIKE ?", "%#{search}%")
-        where("colony LIKE ?", "%#{search}%")
+        where("title LIKE ? OR description LIKE ? OR street LIKE ? OR colony LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
     end
-
-
+    
 end

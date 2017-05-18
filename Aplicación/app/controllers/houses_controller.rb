@@ -8,9 +8,30 @@ class HousesController < ApplicationController
   def index
     @houses = House.all
     if params[:search]
-      @houses = House.search(params[:search]).order("created_at DESC")
+      @houses = House.search(params[:search])
     else
-      @houses = House.all.order('created_at DESC')
+      @houses = House.all
+    end
+    if params[:cost]
+      if params[:cost]=="Menor a mayor"
+        @houses=@houses.order("cost ASC")
+      elsif params[:cost]=="Mayor a menor"
+        @houses=@houses.order("cost DESC")
+      else
+        @houses=@houses.order('cost DESC')
+      end
+    else
+      @houses=@houses.order('created_at DESC')
+    end
+    if params[:kind]
+      if params[:kind]=="Cuarto"
+        @houses = @houses.where(kind: "Cuarto")
+      elsif params[:kind]=="Departamento"
+        @houses = @houses.where(kind: "Departamento")
+      elsif params[:kind]=="Casa"
+        @houses = @houses.where(kind: "Casa")
+      end
+      
     end
   end
 

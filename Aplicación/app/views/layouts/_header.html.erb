@@ -7,6 +7,7 @@
                     <span class="sr-only">Toggle navigation</span> Menú <i class="fa fa-bars"></i>
                 </button>
                 <%= link_to "airbnb ITAM", root_path, class: "navbar-brand page-scroll" %>
+                
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -14,6 +15,9 @@
                 <ul style="color: orange" class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <%= link_to "buscar", buscar_path, class: "page-scroll" %>
                     </li>
                     <li>
                         <a class="page-scroll" href="#services">Conviértete en Arrendador</a>
