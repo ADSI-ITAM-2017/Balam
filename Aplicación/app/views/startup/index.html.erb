@@ -1,9 +1,10 @@
 <!-- Header -->
     <header>
+
         <div class="container">
             <div class="intro-text">
                 <div class="intro-lead-in">Bienvenido a tu próximo nuevo hogar!</div>
-                <div class="intro-heading">El lugar perfecto para vivir cerca de tu universidad</div>
+                <div class="intro-heading" style="text-transform: lowercase;">El lugar perfecto para vivir cerca de tu universidad</div>
                 <a href="#services" class="page-scroll btn btn-xl">Buscar hogar</a>
             </div>
         </div>
@@ -22,7 +23,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Servicios</h2>
-                    <h3 class="section-subheading text-muted">Estos son algunos lugares disponibles</h3>
+                    <h3 class="section-subheading text-muted">Conoce lo que te podemo ofrecer</h3>
                 </div>
             </div>
             <div class="row text-center">
@@ -31,28 +32,29 @@
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Casa en calle Chihuahua</h4>
+                    <h4 class="service-heading">Arrendador</h4>
                     
-                    <img src="<%= asset_path 'casa1.jpg' %>" border="4" width="300" height="150">
-                    <p class="text-muted">Linda casa en renta, cuenta con 2 baños y 3 recámaras, cocina, sala y una lugar de estacionamiento</p>
+                    <img src="<%= asset_path 'arrendador.png' %>" border="4" width="300" height="150">
+                    <p class="text-muted">Puedes poner en renta una casa, departamento, <br> cuarto o cualquier lugar que para vivir.</p>
                 </div>
-                <div class="col-md-4">
+                <!--<div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Cuarto en renta rio hondo </h4>
+                    <h4 class="service-heading">Arrendatario </h4>
                     <img src="https://pbs.twimg.com/media/C_ACiwZUMAA_UUh.jpg" border="4" width="300" height="150" >
-                    <p class="text-muted">Amplio cuarto para estudiante, baño propio y un lugar de estacionamiento</p>
+                    <p class="text-muted">De acuerdo a tus necesidades y gustos puedes encontrar un nuevo hogar para esta nueva etapa de la universidad</p>
                 </div>
+                -->
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Cuarto cerca de Televisa</h4>
-                    <img src="https://pbs.twimg.com/media/C_ACoR5UwAA8ffK.jpg" border="4" width="300" height="150" >
-                    <p class="text-muted">Cuarto amueblado para señorita, baño propio, todos los servicios incluidos</p>
+                    <h4 class="service-heading">Arrendatario </h4>
+                    <img src="<%= asset_path 'arrendatario.jpg' %>" border="4" width="300" height="150" >
+                    <p class="text-muted">De acuerdo a tus necesidades y gustos puedes encontrar un nuevo hogar para esta nueva etapa de la universidad</p>
                 </div>
             </div>
         </div>
@@ -63,8 +65,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Portfolio</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading">Hogares disponibles</h2>
+                    <h3 class="section-subheading text-muted">Aquí hay algunos lugares disponibles, con la búsqueda avanzada puedes filtrar tus gustos y necesidades</h3>
                 </div>
             </div>
             <div class="row">
@@ -75,11 +77,11 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
+                        <img src="<%= asset_path 'casa1a.jpg' %>"  class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Round Icons</h4>
-                        <p class="text-muted">Graphic Design</p>
+                        <h4>Bonita casa en calle Chihuahua</h4>
+                        <p class="text-muted">Casa en renta, todos los servicios, buena ubicación</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
@@ -89,7 +91,7 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/startup-framework.png" class="img-responsive" alt="">
+                        <img src="<%= asset_path 'casa2a.jpg' %>"  class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>Startup Framework</h4>
@@ -103,7 +105,7 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/treehouse.png" class="img-responsive" alt="">
+                        <img src="<%= asset_path 'casa3a.jpg' %>"  class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>Treehouse</h4>
@@ -117,7 +119,7 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/golden.png" class="img-responsive" alt="">
+                        <img src="<%= asset_path 'depa1a.jpg' %>"  class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>Golden</h4>
@@ -131,7 +133,7 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/escape.png" class="img-responsive" alt="">
+                        <img src="<%= asset_path 'depa2a.jpg' %>"  class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>Escape</h4>
@@ -145,7 +147,7 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/dreams.png" class="img-responsive" alt="">
+                        <img src="<%= asset_path 'depa3a.jpg' %>"  class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>Dreams</h4>
