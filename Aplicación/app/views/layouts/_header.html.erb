@@ -20,6 +20,12 @@
                         <%= link_to "buscar", buscar_path, class: "page-scroll" %>
                     </li>
                     <li>
+                        <% if logged_in? %>
+                            <% if current_user.lessee==false %>
+                                <%= link_to "Conviertete en Arrendador", "users#lesseeChange", class: "page-scroll" %>
+                            <% end %>
+                        <% end %>
+                       
                         <a class="page-scroll" href="#services">Conviértete en Arrendador</a>
                     </li>
                     <li>
