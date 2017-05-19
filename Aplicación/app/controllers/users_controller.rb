@@ -22,13 +22,20 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:nombre, :email, :fecha, :password, :password_confirmation)
+      params.require(:user).permit(:nombre, :email, :fecha, :password, :password_confirmation, :lessee)
     end
     
     def houseGallery
       @user = current_user
       @houses = @user.houses.paginate(page: params[:page])
-      #redirect_to "/misCasas"
     end
+  
+  
+  def lesseeChange
+    @user=current_user
+    @user.lessee=true
+    redirect_to "/miCuenta"
+  end
+  
   
 end

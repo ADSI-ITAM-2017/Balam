@@ -1,5 +1,5 @@
 <li id="house-<%= house.id %>">
-  <div>
+    <div>
 <br>
 <br>
 <br>
@@ -7,6 +7,7 @@
 <br>
 <br>
 </div>
+  
   <%= image_tag(house.file_url, :width => "100%") if house.file.present? %>
   <span class="user"><%= link_to house.title, house %></span>
   <span class="content"><%= house.description %></span>
