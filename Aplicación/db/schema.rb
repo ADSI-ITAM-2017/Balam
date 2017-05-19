@@ -50,11 +50,11 @@ ActiveRecord::Schema.define(version: 20170518085446) do
     t.string   "nombre"
     t.string   "email"
     t.date     "fecha"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "password_digest"
     t.string   "remember_digest"
-    t.boolean  "lessee",          default: false
+    t.boolean  "lessee",          default: true
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
