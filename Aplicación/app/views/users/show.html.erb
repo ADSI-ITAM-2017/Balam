@@ -21,6 +21,8 @@
   <% if logged_in? %>
     <% if current_user.lessee==true %>
       <%= link_to 'Casas', misCasas_path %>
+      <%= link_to "Añadir casa", nuevaCasa_path %>
+      
     <% end %>
   <% end %>    
 
