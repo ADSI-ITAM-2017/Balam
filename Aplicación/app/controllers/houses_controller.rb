@@ -7,6 +7,32 @@ class HousesController < ApplicationController
   # GET /houses.json
   def index
     @houses = House.all
+    if params[:search]
+      @houses = House.search(params[:search])
+    else
+      @houses = House.all
+    end
+    if params[:cost]
+      if params[:cost]=="Menor a mayor"
+        @houses=@houses.order("cost ASC")
+      elsif params[:cost]=="Mayor a menor"
+        @houses=@houses.order("cost DESC")
+      else
+        @houses=@houses.order('cost DESC')
+      end
+    else
+      @houses=@houses.order('created_at DESC')
+    end
+    if params[:kind]
+      if params[:kind]=="Cuarto"
+        @houses = @houses.where(kind: "Cuarto")
+      elsif params[:kind]=="Departamento"
+        @houses = @houses.where(kind: "Departamento")
+      elsif params[:kind]=="Casa"
+        @houses = @houses.where(kind: "Casa")
+      end
+      
+    end
   end
 
   # GET /houses/1
@@ -64,7 +90,7 @@ class HousesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def house_params
-      params.require(:house).permit(:title, :description, :file, :cost, :street, :number, :postal,  :colony, :type)
+      params.require(:house).permit(:title, :description, :file, :cost, :street, :number, :postal,  :colony, :kind)
     end
     
 
