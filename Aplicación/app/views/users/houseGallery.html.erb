@@ -1,0 +1,20 @@
+<div class="col-md-8">
+    <%= current_user.nombre %>
+    <% if current_user.houses.any? %>
+    <div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+      <h3>CASAS (<%= current_user.houses.count %>)</h3>
+      <ol class="houses">
+        <% @houses = current_user.houses.paginate(page: params[:page]) %>
+        <%= render @houses %>
+      </ol>
+      <%= will_paginate @houses %>
+    <% end %>
+    <% link_to "Añadir casa", nuevaCasa_path %>
+  </div>

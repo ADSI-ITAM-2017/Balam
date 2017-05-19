@@ -1,0 +1,27 @@
+<% provide(:title, @user.nombre) %>
+<div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.nombre %>
+      </h1>
+    </section>
+  </aside>
+  
+  <%= link_to 'Mensajes', conversations_path %>
+  <%= link_to 'Casas', misCasas_path %>
+  
+  
+  
+  
+</div>

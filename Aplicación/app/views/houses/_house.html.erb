@@ -1,0 +1,25 @@
+<li id="house-<%= house.id %>">
+  <div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+  <%= image_tag(house.file_url, :width => "100%") if house.file.present? %>
+  <span class="user"><%= link_to house.title, house %></span>
+  <span class="content"><%= house.description %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(house.created_at) %> ago.
+  </span>
+  <% if logged_in? %>
+    <% if house.user==current_user %>
+      <span><%= link_to "Editar", edit_house_path(house.id) %></span>
+      <span><%= link_to "Eliminar", house_path(house.id), method: :delete, data: { confirm: "¿Estás seguro?" } %></span>
+    <% end %>
+  <% end %>
+ 
+</li>
+
+

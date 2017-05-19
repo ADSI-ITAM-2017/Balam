@@ -1,0 +1,76 @@
+<!-- Navigation -->
+<link href="css/agency.min.css" rel="stylesheet">
+ <%= stylesheet_link_tag 'application.css.scss', media: 'all', 'data-turbolinks-track' => true %>
+    <nav id="mainNav" style="position: fixed; background-color: cornflowerblue;" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+             <style type="text/css"> 
+             mainNav{            
+                    background: #333;
+                    color: white;
+                    height: 80px;
+                    
+                    width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
+                    left: 0; /* Posicionamos la cabecera al lado izquierdo */
+                    top: 0; /* Posicionamos la cabecera pegada arriba */
+                    position: fixed; /* Hacemos que la cabecera tenga una posición fija */
+                    }
+            </style>
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menú <i class="fa fa-bars"></i>
+                </button>
+                <%= link_to "airbednb ITAM", root_path, class: "navbar-brand page-scroll" %>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul  class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Conviértete en Arrendador</a>
+                    </li>
+                    <li>
+                        <%= link_to "Ayuda", ayuda_path, class: "page-scroll" %>
+                    </li>
+                        
+                        <% if logged_in? %>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Cuenta <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu" style="background-color: cornflowerblue;">
+                                    <li><%= link_to "Perfil", current_user %></li>
+                                    <li><%= link_to "Configuración", '#' %></li>
+                                    <li class="divider"></li>
+                                    <li><%= link_to "Cerrar Sesión", logout_path, method: :delete %></li>
+                                </ul>
+                            </li>
+                        <% else %>
+                            <li><%= link_to "Regístrate", registrate_path, class: "page-scroll" %></li>
+                            <li><%= link_to "Iniciar Sesión", login_path,  class: "page-scroll" %></li>
+                        <% end %>
+                        
+                   <!-- <li>    
+                        %= link_to "Regístrate", registrate_path, class: "page-scroll" %>
+                    </li>
+                    <li>
+                        %= link_to "Iniciar Sesión", login_path, class: "page-scroll" %>
+                    </li> 
+                        -->
+                       
+                </ul>
+                <style>
+                    page-scroll {
+                    color: #010101;
+                    }  
+                </style>
+               
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
